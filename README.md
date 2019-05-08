@@ -2,6 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
+## Screenshots
+![invalid](.screenshots/Screenshot_20190509_010806.png)
+![valid](.screenshots/Screenshot_20190509_010925.png)
+![Error](.screenshots/Screenshot_20190509_011002.png)
+
+## Note
+
+The error occurs during the pending stage, and the application works after the pending stage has completed.
+
+## Installation
+run the following commands in the terminal
+
+```console
+$ npm install
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

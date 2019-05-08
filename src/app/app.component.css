@@ -1,0 +1,8 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid rgba(255,0,0,0.4);
+}
+
+.post-data {
+  color: #3c3c3c;
+  font-weight: 800;
+}

@@ -1,20 +1,75 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="project_form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="projectNameInput">Project Name</label>
+          <input
+            type="text"
+            name="projectNameInput"
+            class="form-control"
+            formControlName="project_name"
+            placeholder="Enter the Project name">
+            <span
+              *ngIf="!project_form.get('project_name').valid && project_form.get('project_name').touched"
+              class="help-block" style="color:red"><span
+              *ngIf="project_form.get('project_name').errors['isForbidden']">{{ project_form.get('project_name').value }} is invalid Project name</span>
+              <span
+              *ngIf="project_form.get('project_name').errors['required']">Field is required</span>
+            </span>
 
+        <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input type="email"
+            class="form-control"
+            formControlName="email"
+            name="emailInput"
+            placeholder="Enter email address">
+            <span
+              *ngIf="!project_form.get('email').valid && project_form.get('email').touched"
+              class="help-block" style="color:red">Please enter a valid email address</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <select
+          name="projectStatusSelector"
+          formControlName="project_status"
+          class="form-control">
+          <option value="stable">Stable</option>
+          <option value="cirtical">Cirtical</option>
+          <option value="finished">Finished</option>
+        </select>
+        </div>
+        <button
+        class="btn btn-primary"
+        type="submit">Submit</button>
+
+      </form>
+      <!--
+          Create a Form with the following Controls and Validators
+          1) Project Name (should not be empty)
+          2) Mail (should not be a empty and a valid email)
+          3) Project Status Dropdown, with three values: 'Stable', 'Critical', 'Finished'
+          4) Submit Button
+
+          Add your own Validator which doesn't allow "Test" as a Project Name
+
+          Also implement that Validator as an async Validator (replace the other one)
+
+          Upon submitting the form, simply print the value to the console
+      -->
+    </div>
+  </div>
+
+  <hr>
+  <div class="row" *ngIf="is_form_submitted">
+
+    <div class="col-xs-12">
+      <h4>Submitted Data</h4>
+      <p><span class="post-data">Project Name:</span> {{ form_data.project_name }}</p>
+      <p><span class="post-data">Email:</span> {{ form_data.email }}</p>
+      <p><span class="post-data">Project Status:</span> {{ form_data.project_status }}</p>
+
+    </div>
+  </div>
+</div>

@@ -12,11 +12,14 @@
             placeholder="Enter the Project name">
             <span
               *ngIf="!project_form.get('project_name').valid && project_form.get('project_name').touched"
-              class="help-block" style="color:red"><span
+              class="help-block" style="color:red">
+              <span *ngIf="project_form.get('project_name').errors!==null">
+              <span
               *ngIf="project_form.get('project_name').errors['isForbidden']">{{ project_form.get('project_name').value }} is invalid Project name</span>
               <span
               *ngIf="project_form.get('project_name').errors['required']">Field is required</span>
             </span>
+          </span>
 
         <div class="form-group">
             <label for="emailInput">Email</label>

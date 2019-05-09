@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Screenshots
 ![invalid](.screenshots/Screenshot_20190509_010806.png)
 ![valid](.screenshots/Screenshot_20190509_010925.png)
-![Error](.screenshots/Screenshot_20190509_011002.png)
+<!-- ![Error](.screenshots/Screenshot_20190509_011002.png) -->
 
 ## Note
 
